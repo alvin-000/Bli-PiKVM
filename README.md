@@ -2,33 +2,35 @@
 Install Pi-KVM on BliKVM v4 Allwinner.
 
 ## Disable BliKVM services
-```bash
 ssh blikvm@BLIKVM_IP
-
+````
+rw
 sudo apt update
 sudo apt upgrade
 sudo systemctl disable --now kvmd-hid kvmd-janus.service kvmd-video.service kvmd-web.service
 sudo reboot
-```
+````
 
 **NOTE:** kvmd-main.service is for LCD and hardware monitoring. Just leave kvmd-main.service enabled.
 
 ## Install kvmd-armbian
 
-```bash
 ssh blikvm@BLIKVM_IP
-
+````
+rw
 sudo apt install -y git vim make python3-dev gcc
 git clone https://github.com/srepac/kvmd-armbian.git
 cd kvmd-armbian
 sudo ./install.sh
 sudo reboot
+````
 
 ssh blikvm@BLIKVM_IP
-
+````
+rw
 cd kvmd-armbian
 sudo ./install.sh
-```
+````
 
 Thanks to [kvmd-armbian](https://github.com/srepac/kvmd-armbian) by [@srepac](https://github.com/srepac).
 
@@ -46,6 +48,7 @@ Before applying the patch, you would need to resize your installation partition 
 1. Download the msd patch and apply it.
 
 ```bash
+rw
 cd /usr/lib/python3/dist-packages/kvmd
 sudo wget -q https://github.com/RainCat1998/Bli-PiKVM/raw/main/3.291msd.patch -O 3.291msd.patch
 sudo patch -p1 < 3.291msd.patch
@@ -67,6 +70,7 @@ The patch code is ported from [fruity-pikvm](https://github.com/jacobbar/fruity-
 
 1. Download the latest BliKVM Source and compile kvmd-atx
 ```bash
+rw
 git clone https://github.com/ThomasVon2021/blikvm
 cd blikvm/package/kvmd-atx
 make
