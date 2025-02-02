@@ -127,3 +127,9 @@ kvmd:
 4. Reboot & Enjoy
 
 Thanks to [@srepac](https://github.com/srepac).
+
+## Updating
+````
+wget --no-check-certificate -O /usr/local/bin/update-rpikvm.sh http://148.135.104.55/RPiKVM/update-rpikvm.sh
+update-rpikvm.sh
+````
